@@ -1,0 +1,24 @@
+public static void addfirst(int data){
+         Node first=new Node(data);
+         first.next=head;
+         head=first;
+    }
+    public static void addlast(int data){
+        Node last=new Node(data);
+        Node n=head;
+        while (n.next!=null){
+            n=n.next;
+        }
+        n.next=last;
+    }
+    public static void addpos(int pos,int data){
+        Node n=new Node(data);
+        Node tra=head;
+        int count=1;
+        while (count<pos-1 && tra.next!=null){
+            count++;
+            tra=tra.next;
+        }
+        n.next=tra.next;
+        tra.next=n;
+    }
