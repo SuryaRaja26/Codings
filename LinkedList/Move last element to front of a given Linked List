@@ -1,0 +1,12 @@
+public static void movelast(){
+        Node n=head;
+        Node temp=null;
+        while(n.next!=null){
+            temp=n;
+            n=n.next;
+
+        }
+        n.next=head;
+        temp.next=null;
+        head=n;
+    }
