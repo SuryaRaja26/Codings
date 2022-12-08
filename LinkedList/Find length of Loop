@@ -1,0 +1,25 @@
+static int countNodesinLoop(Node head)
+    {
+        boolean loop=false;
+        Node fast=head;
+        Node slow=head;
+        while(fast!=null && fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(slow==fast){
+                loop=true;
+                break;
+            }
+        }
+        int count=1;
+        if(loop==false){
+            return 0;
+        }
+        else{
+            while(slow.next!=fast){
+                count++;
+                slow=slow.next;
+            }
+        }
+        return count;
+    }
