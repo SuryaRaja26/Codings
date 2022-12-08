@@ -53,7 +53,54 @@ public class DL {
             t=t.pre;
         }
     }
+    public void addfirst(int data){
+        Node temp=new Node(data);
+        if(isempty()){
+            head=temp;
+        }
+        else {
+            head.pre=temp;
+        }
+        temp.next=head;
+        head=temp;
+        length++;
 
+    }
+    public void addlast(int data){
+        Node temp=new Node(data);
+        if(isempty()){
+            head=temp;
+        }
+        else {
+            tail.next=temp;
+        }
+        temp.pre=tail;
+        tail=temp;
+        length++;
+    }
+    public void delfirst(){
+         if(head==tail){
+             tail=null;
+         }
+         else {
+             head.next.pre=null;
+         }
+         Node temp=head;
+         head=head.next;
+         temp.next=null;
+    }
+    public void dellast(){
+        Node temp=tail;
+        if (head==tail){
+            head=null;
+        }
+        else {
+            tail.pre.next=null;
+        }
+        tail=tail.pre;
+        temp.pre=null;
+
+    }
     public static void main(String[] args) {
         Scanner s=new Scanner(System.in);
         DL l=new DL();
@@ -63,6 +110,15 @@ public class DL {
         for(int i=0;i<n;i++){
             l.addnode(s.nextInt());
         }
+
+        l.addfirst(1);
+        l.addlast(6);
+
+        l.forprint();
+        l.backprint();
+        System.out.println("deletion");
+        l.delfirst();
+        l.dellast();
         l.forprint();
         l.backprint();
 
