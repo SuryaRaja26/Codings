@@ -1,0 +1,168 @@
+public class LL{
+    static Node head;
+    static class Node{
+        int data;
+        Node next;
+        Node(int d){
+            data=d;
+            next=null;
+        }
+    }
+    LL(){
+        head=null;
+    }
+    public void print(){
+        int count =0;
+        if(head==null){
+            System.out.println("empty");
+        }
+        else {
+            Node n=head;
+            while (n!=null){
+                System.out.println(n.data);
+                n=n.next;
+                count++;
+
+            }
+            System.out.println("size is "+ count);
+        }
+    }
+    public static void addfirst(int data){
+         Node first=new Node(data);
+         first.next=head;
+         head=first;
+    }
+    public static void addlast(int data){
+        Node last=new Node(data);
+        Node n=head;
+        while (n.next!=null){
+            n=n.next;
+        }
+        n.next=last;
+    }
+    public static void addpos(int pos,int data){
+        Node n=new Node(data);
+        Node tra=head;
+        int count=1;
+        while (count<pos-1 && tra.next!=null){
+            count++;
+            tra=tra.next;
+        }
+        n.next=tra.next;
+        tra.next=n;
+    }
+    public static void delfirst(){
+        Node temp=head;
+        head=head.next;
+        temp.next=null;
+    }
+    public static void dellast(){
+        Node temp=head;
+        while (temp.next.next!=null){
+            temp=temp.next;
+        }
+        temp.next=null;
+    }
+    public static void delmid(int pos){
+        Node temp=head;
+        int count=1;
+        while(pos-1>count){
+            count++;
+            temp=temp.next;
+
+        }
+        temp.next=temp.next.next;
+    }
+    public static void reverse(){
+        Node current=head;
+        Node nex=null;
+        Node pre=null;
+        while (current!=null){
+            nex=current.next;
+            current.next=pre;
+            pre=current;
+            current=nex;
+        }
+        head=pre;
+    }
+    public static void findmid(){
+        Node n=head;
+        int count=1;
+        while(n.next!=null){
+            n=n.next;
+            count++;
+        }
+        count=(count/2)+1;
+        Node temp=head;
+        int t=1;
+        while(t<count){
+            temp=temp.next;
+            t++;
+        }
+        System.out.println(temp.data);
+    }
+    public static void removedup(){
+        Node current=head;
+        while (current!=null){
+            Node temp=current;
+            while (temp!=null && temp.data==current.data){
+                temp=temp.next;
+            }
+            current.next=temp;
+            current=current.next;
+        }
+    }
+    public static void unsortedremove(){
+        Node ptr1=head;
+        while(ptr1!=null){
+            Node ptr2=ptr1;
+            while (ptr2.next!=null){
+                if(ptr1.data==ptr2.next.data){
+                    ptr2.next=ptr2.next.next;
+                }
+                else {
+                    ptr2=ptr2.next;
+                }
+            }
+            ptr1=ptr1.next;
+        }
+    }
+    public static void movelast(){
+        Node n=head;
+        Node temp=null;
+        while(n.next!=null){
+            temp=n;
+            n=n.next;
+
+        }
+        n.next=head;
+        temp.next=null;
+        head=n;
+    }
+
+    public static void main(String[] args) {
+        LL l=new LL();
+        head=new Node(1);
+        Node second=new Node(2);
+        Node third=new Node(3);
+        Node fourth=new Node(4);
+        head.next=second;
+        second.next=third;
+        third.next=fourth;
+        addfirst(0);
+        addlast(5);
+        addpos(3,6);
+
+        delfirst();
+        dellast();
+        delmid(2);
+        addfirst(1);
+        //l.print();
+        //System.out.println("reversed");
+        //removedup();
+        unsortedremove();
+        movelast();
+        l.print();
+
+    }
+}
