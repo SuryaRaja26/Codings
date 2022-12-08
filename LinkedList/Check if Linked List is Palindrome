@@ -1,0 +1,26 @@
+boolean isPalindrome(Node head) 
+    {
+        Node slow=head;
+        boolean c=false;
+        int i=0;
+        Stack<Integer> s=new Stack<Integer>();
+        while(slow!=null){
+            s.push(slow.data);
+            slow=slow.next;
+        }
+        while(head!=null){
+            i=s.pop();
+            if(head.data==i){
+                c=true;
+            }
+            else{
+                
+                return false;
+                
+            }
+            head=head.next;
+        }
+       
+        return true;
+        
+    }
