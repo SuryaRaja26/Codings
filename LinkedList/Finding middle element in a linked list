@@ -1,0 +1,17 @@
+int getMiddle(Node head)
+    {
+         Node n=head;
+         int count=1;
+         while(n.next!=null){
+             n=n.next;
+             count++;
+         }
+         count=(count/2)+1;
+         Node temp=head;
+         int t=1;
+         while(t<count){
+             temp=temp.next;
+             t++;
+         }
+         return temp.data;
+    }
