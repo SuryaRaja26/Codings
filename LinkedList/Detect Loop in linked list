@@ -1,0 +1,15 @@
+public static boolean detectLoop(Node head){
+        // Add code here
+        boolean loop=false;
+        Node fast=head;
+        Node slow=head;
+        while(fast!=null && fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(slow==fast){
+                loop=true;
+                return true;
+            }
+        }
+        return false;
+    }
