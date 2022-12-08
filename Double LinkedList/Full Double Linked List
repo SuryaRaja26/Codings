@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class DL {
+    Node head;
+    Node tail;
+    int length;
+    static class Node{
+        int data;
+        Node pre;
+        Node next;
+        Node(int d){
+            data=d;
+            pre=null;
+            next=null;
+        }
+    }
+    DL(){
+        head=null;
+        tail=null;
+        length=0;
+    }
+    public boolean isempty(){
+        return length==0;
+    }
+
+    public void addnode(int data){
+        Node temp=new Node(data);
+        if(isempty()){
+            head=temp;
+        }
+        else {
+            tail.next=temp;
+        }
+        temp.pre=tail;
+        tail=temp;
+        length++;
+
+    }
+    public  void forprint(){
+        Node temp=head;
+        System.out.print("Elements are: ");
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+
+    }
+    public void backprint(){
+        Node t=tail;
+        System.out.print("Backward elements are: ");
+        while (t!=null){
+            System.out.print(t.data+" ");
+            t=t.pre;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        DL l=new DL();
+        System.out.println("Enter Double linked list size: ");
+        int n=s.nextInt();
+        System.out.println("Enter Double Linked List Elements: ");
+        for(int i=0;i<n;i++){
+            l.addnode(s.nextInt());
+        }
+        l.forprint();
+        l.backprint();
+
+    }
+}
