@@ -1,0 +1,56 @@
+public class Arraystack {
+    static final int max=5;
+    static int[] arr=new int[max];
+    static int top;
+    Arraystack(){
+        top=-1;
+    }
+    public static boolean push(int data){
+        if(top>=max-1){
+            System.out.println("stack overflow");
+        }
+        else {
+            arr[++top]=data;
+
+        }
+        return true;
+    }
+    public void pop(){
+        if (top<0){
+            System.out.println("stack underflow");
+        }
+        else{
+            System.out.println("Element poped: "+arr[top--]);
+
+        }
+    }
+    public void print(){
+
+        for(int i=top;i>=0;i--){
+            System.out.println(arr[i]);
+        }
+
+    }
+    public void peek(){
+        if(top<0){
+            System.out.println("stack underflow");
+        }
+        else
+        System.out.println("peek element is: "+arr[top]);
+    }
+
+    public static void main(String[] args) {
+        Arraystack s=new Arraystack();
+        push(1);
+        push(2);
+        push(3);
+        push(4);
+        push(5);
+        s.pop();
+        s.peek();
+        s.print();
+
+
+
+    }
+}
