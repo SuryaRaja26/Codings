@@ -1,0 +1,78 @@
+public class Binarytree {
+    Node root;
+    class Node{
+        Node left;
+        Node right;
+        int data;
+        Node(int d){
+            data=d;
+
+        }
+    }
+
+    public void create(){
+        Node f=new Node(1);
+        Node s=new Node(2);
+        Node t=new Node(3);
+        Node fo=new Node(4);
+        Node fi=new Node(5);
+        Node si=new Node(6);
+        root=f;
+        f.left=s;
+        f.right=t;
+        s.left=fo;
+        s.right=fi;
+        t.left=si;
+
+
+    }
+    public void preorder(Node root){
+
+        if(root==null){
+            return;
+        }
+        else {
+            System.out.print(root.data+" ");
+            preorder(root.left);
+            preorder(root.right);
+        }
+    }
+    public void postorder(Node root){
+        
+        Node temp=root;
+        if(temp==null){
+            return;
+        }
+        else {
+
+            postorder(temp.left);
+            postorder(temp.right);
+            System.out.print(temp.data+" ");
+        }
+    }
+    public void inorder(Node root){
+
+        if(root==null){
+            return;
+        }
+        else {
+
+            inorder(root.left);
+            System.out.print(root.data+" ");
+            inorder(root.right);
+        }
+    }
+
+    public static void main(String[] args) {
+        Binarytree b=new Binarytree();
+        b.create();
+        System.out.print("Preorder traversal:");
+        b.preorder(b.root);
+        System.out.print("Postorder traversal:");
+        b.postorder(b.root);
+        System.out.print("Inorder traversal:");
+        b.inorder(b.root);
+
+    }
+
+}
