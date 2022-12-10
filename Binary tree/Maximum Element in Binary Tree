@@ -1,0 +1,15 @@
+public int findmax(Node root){
+        if(root==null){
+            return Integer.MIN_VALUE;
+        }
+        int result= root.data;
+        int left=findmax(root.left);
+        int right=findmax(root.right);
+        if(left>right){
+            return left;
+        }
+        if(right>left){
+            return right;
+        }
+        return result;
+    }
