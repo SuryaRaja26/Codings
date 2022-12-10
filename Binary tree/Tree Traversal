@@ -34,3 +34,22 @@ public void preorder(Node root){
             inorder(root.right);
         }
     }
+    public void levelorder(){
+        if(root==null){
+            return;
+        }
+        else{
+            Queue<Node> s=new LinkedList<>();
+            s.offer(root);
+            while (!s.isEmpty()){
+                Node temp=s.poll();
+                System.out.println(temp.data);
+                if(temp.left!=null){
+                    s.offer(temp.left);
+                }
+                if (temp.right!=null){
+                    s.offer(temp.right);
+                }
+            }
+        }
+    }
