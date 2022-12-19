@@ -1,0 +1,16 @@
+public void iterativepre(Node root){
+        if(root==null)
+            return;
+        Stack<Node> s=new Stack();
+        s.push(root);
+        while (!s.isEmpty()){
+            Node temp=s.pop();
+            System.out.println(temp.data);
+            if(temp.right!=null){
+                s.push(temp.right);
+            }
+            if(temp.left!=null){
+                s.push(temp.left);
+            }
+        }
+    }
