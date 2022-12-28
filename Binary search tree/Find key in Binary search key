@@ -1,0 +1,11 @@
+public void findkey(Node root,int key){
+        if(root==null || key==root.data){
+            System.out.println(root.data);
+            return;
+        }
+        if(root.data>key){
+            findkey(root.left,key);
+        }
+        else
+            findkey(root.right,key);
+    }
