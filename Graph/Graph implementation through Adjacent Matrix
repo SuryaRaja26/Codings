@@ -1,0 +1,45 @@
+public class Adjacentmatrix {
+    int v;
+    int e;
+    int[][] adjmatrix;
+    public Adjacentmatrix(int nodes){
+        this.v=nodes;
+        this.e=0;
+        this.adjmatrix=new int[nodes][nodes];
+    }
+    public void addedge(int u,int v){
+        this.adjmatrix[u][v]=1;
+        this.adjmatrix[v][u]=1;
+        e++;
+    }
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(v + " vertices, " + e + " edges " + "\n");
+        for (int i = 0; i < v; i++) {
+            sb.append(i + ": ");
+            for (int w : adjmatrix[i]) {
+                sb.append(w + " ");
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+    public void print(){
+        for(int i=0;i<v;i++){
+            for(int j=0;j<v;j++){
+                System.out.print(adjmatrix[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Adjacentmatrix a=new Adjacentmatrix(4);
+        a.addedge(0,1);
+        a.addedge(1,2);
+        a.addedge(2,3);
+        a.addedge(3,0);
+        a.print();
+        //System.out.println(a);
+    }
+}
