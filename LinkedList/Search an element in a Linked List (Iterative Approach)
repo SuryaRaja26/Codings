@@ -1,0 +1,15 @@
+public boolean findele(int ele){
+        Node temp=head;
+        while(temp!=null){
+            if(temp.data==ele){
+                return true;
+            }
+            temp=temp.next;
+        }
+        return false;
+
+    }
+    
+    
+//Time Complexity: O(N), Where N is the number of nodes in the LinkedList
+//Auxiliary Space: O(1)
