@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class List {
+    Node head;
+    Node tail;
+    int length;
+    class  Node{
+        int data;
+        Node next;
+        Node(int d){
+            data=d;
+            next=null;
+
+        }
+    }
+    List(){
+        head=null;
+        tail=null;
+        length=0;
+    }
+    public boolean isempty(){
+        return length==0;
+    }
+    public void addnode(int data){
+        Node temp= new Node(data);
+        if(isempty()){
+           head=temp;
+           tail=temp;
+
+        }
+        else {
+            tail.next=temp;
+            tail=temp;
+        }
+        length++;
+
+
+    }
+    public void printnode(){
+        Node temp=head;
+        while(temp!=null){
+            System.out.println(temp.data);
+            temp=temp.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+
+        List l=new List();
+        System.out.println("enter size of linked list: ");
+        int n=s.nextInt();
+        System.out.println("Enter the data of list");
+        for(int i=0;i<n;i++){
+            l.addnode(s.nextInt());
+        }
+
+
+        l.printnode();
+    }
+}
