@@ -13,3 +13,16 @@ public boolean findele(int ele){
     
 //Time Complexity: O(N), Where N is the number of nodes in the LinkedList
 //Auxiliary Space: O(1)
+
+
+  public boolean findrecele(Node temp,int ele){
+        if(temp==null){
+            return false;
+        }
+        if (temp.data==ele)
+            return true;
+        return findrecele(temp.next,ele);
+    }
+    
+    Time Complexity: O(N)
+Auxiliary Space: O(N), Stack space used by recursive calls
