@@ -1,0 +1,10 @@
+public int findlenghtrecursive(Node temp){
+        if(temp==null){
+            return 0;
+        }
+        return 1+findlenghtrecursive(head.next);
+    }
+    
+    
+//Time Complexity: O(N), As we are traversing the linked list only once.
+//Auxiliary Space: O(N), Extra space is used in the recursion call stack.
