@@ -1,3 +1,6 @@
+Iterative Method
+-----------------
+
 Node reverseList(Node head)
     {
         Node current=head;
@@ -16,7 +19,9 @@ Node reverseList(Node head)
 Time Complexity: O(N), Traversing over the linked list of size N. 
 Auxiliary Space: O(1)
 
-
+------------------------------------------------------------------
+Recrusion method
+----------------
 public Node recreverse(Node head){
 
         if(head==null||head.next==null){
@@ -27,7 +32,6 @@ public Node recreverse(Node head){
         head.next=null;
         return rest;
 
-
     }
     PSVM(){
     l.head=l.recreverse(l.head);
@@ -35,3 +39,4 @@ public Node recreverse(Node head){
     
     Time Complexity: O(N), Visiting over every node one time 
 Auxiliary Space: O(N), Function call stack space
+------------------------------------------------------------
