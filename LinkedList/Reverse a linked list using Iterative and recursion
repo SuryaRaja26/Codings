@@ -1,0 +1,37 @@
+Node reverseList(Node head)
+    {
+        Node current=head;
+        Node next=null;
+        Node pre=null;
+        while(current!=null ){
+            next=current.next;
+            current.next=pre;
+            pre=current;
+            current=next;
+        }
+        return pre;
+    }
+    
+    
+Time Complexity: O(N), Traversing over the linked list of size N. 
+Auxiliary Space: O(1)
+
+
+public Node recreverse(Node head){
+
+        if(head==null||head.next==null){
+            return head;
+        }
+        Node rest=recreverse(head.next);
+        head.next.next=head;
+        head.next=null;
+        return rest;
+
+
+    }
+    PSVM(){
+    l.head=l.recreverse(l.head);
+    }
+    
+    Time Complexity: O(N), Visiting over every node one time 
+Auxiliary Space: O(N), Function call stack space
