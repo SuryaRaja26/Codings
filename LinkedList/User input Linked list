@@ -1,0 +1,166 @@
+import java.util.Scanner;
+
+public class List {
+    Node head;
+    Node tail;
+    int length;
+    class  Node{
+        int data;
+        Node next;
+        Node(int d){
+            data=d;
+            next=null;
+
+        }
+    }
+    List(){
+        head=null;
+        tail=null;
+        length=0;
+    }
+    public boolean isempty(){
+        return length==0;
+    }
+    public void addnode(int data){
+        Node temp= new Node(data);
+        if(isempty()){
+           head=temp;
+           tail=temp;
+
+        }
+        else {
+            tail.next=temp;
+            tail=temp;
+        }
+        length++;
+
+
+    }
+    public void printnode(){
+        Node temp=head;
+        while(temp!=null){
+            System.out.println(temp.data);
+            temp=temp.next;
+        }
+    }
+    public void addfront(int data){
+        Node temp=new Node(data);
+        temp.next=head;
+        head=temp;
+    }
+    public void addlast(int data){
+        Node temp=new Node(data);
+        tail.next=temp;
+        tail=temp;
+    }
+    public void addmid(int pos,int data){
+        Node temp=new Node(data);
+        Node tra=head;
+        int count=1;
+        while (count<pos-1 && tra!=null){
+            tra=tra.next;
+            count++;
+        }
+        temp.next=tra.next;
+        tra.next=temp;
+    }
+    public void delfirst(){
+        Node temp=head;
+        head=head.next;
+        temp.next=null;
+    }
+    public void dellast(){
+        Node temp=head;
+        Node pre=null;
+        while(temp.next!=null){
+            pre=temp;
+            temp=temp.next;
+        }
+        pre.next=null;
+    }
+    public boolean findele(int ele){
+        Node temp=head;
+        while(temp!=null){
+            if(temp.data==ele){
+                return true;
+            }
+            temp=temp.next;
+        }
+        return false;
+
+    }
+    public boolean findrecele(Node temp,int ele){
+        if(temp==null){
+            return false;
+        }
+        if (temp.data==ele)
+            return true;
+        return findrecele(temp.next,ele);
+    }
+    public int findlenghtrecursive(Node temp){
+        if(temp==null){
+            return 0;
+        }
+        return 1+findlenghtrecursive(head.next);
+    }
+    public void reverse(){
+        Node current=head;
+        Node next=null;
+        Node pre=null;
+        while (current!=null){
+            next=current.next;
+            current.next=pre;
+            pre=current;
+            current=next;
+        }
+        while (pre!=null){
+            System.out.println(pre.data);
+            pre=pre.next;
+        }
+    }
+    public Node recreverse(Node head){
+
+        if(head==null||head.next==null){
+            return head;
+        }
+        Node rest=recreverse(head.next);
+        head.next.next=head;
+        head.next=null;
+        return rest;
+
+
+    }
+
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+
+        List l=new List();
+        System.out.println("enter size of linked list: ");
+        int n=s.nextInt();
+        System.out.println("Enter the data of list");
+        for(int i=0;i<n;i++){
+            l.addnode(s.nextInt());
+        }
+     //   System.out.println("Enter front data:");
+      //  l.addfront(s.nextInt());
+     //   System.out.println("Enter last data:");
+     //   l.addlast(s.nextInt());
+     //   System.out.println("Enter pos and data:");
+     //   l.addmid(s.nextInt(),s.nextInt());
+     //   l.delfirst();
+     //   l.dellast();
+
+        l.printnode();
+      //  System.out.println("Enter element iterative search:");
+       // System.out.println(l.findele(s.nextInt()));
+       // System.out.println("Enter element recrusive search:");
+     //   System.out.println(l.findrecele(l. head,s.nextInt()));
+        //System.out.println(l.findlenghtrecursive(l.head));
+    //    System.out.println("reversed list");
+      //  l.reverse();
+        System.out.println("recursion reversed list");
+        l.head=l.recreverse(l.head);
+        l.printnode();
+
+    }
+}
