@@ -1,0 +1,59 @@
+public class stk{
+    Node root;
+    class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data=data;
+
+        }
+    }
+
+    public boolean isempty(){
+        return root==null;
+    }
+    public void push(int data){
+        Node temp=new Node(data);
+        if(root==null){
+            root=temp;
+        }
+        else {
+            Node dummy=root;
+            root=temp;
+            temp.next=dummy;
+        }
+    }
+    public void pop()
+    {
+        if(root==null){
+            System.out.println("stack is empty");
+            return;
+        }
+        else {
+            System.out.println("poped:"+root.data);
+            root=root.next;
+        }
+    }
+    public void peek(){
+        if(root==null){
+            System.out.println("stack is empty");
+        }
+        else
+            System.out.println(root.data);
+    }
+
+    public static void main(String[] args) {
+        stk s=new stk();
+        s.push(1);
+        s.push(2);
+        s.push(3);s.push(4);
+        s.pop();
+        s.pop();
+        s.pop();
+        s.pop();
+        s.pop();
+        s.peek();
+        System.out.println(s.root.data);
+
+    }
+}
