@@ -1,0 +1,78 @@
+ static void deleteDeepest(Node root, Node delNode)
+    {
+        Queue<Node> q = new LinkedList<Node>();
+        q.add(root);
+ 
+        Node temp = null;
+ 
+        // Do level order traversal until last node
+        while (!q.isEmpty()) {
+            temp = q.peek();
+            q.remove();
+ 
+            if (temp == delNode) {
+                temp = null;
+                return;
+            }
+            if (temp.right != null) {
+                if (temp.right == delNode) {
+                    temp.right = null;
+                    return;
+                }
+                else
+                    q.add(temp.right);
+            }
+ 
+            if (temp.left != null) {
+                if (temp.left == delNode) {
+                    temp.left = null;
+                    return;
+                }
+                else
+                    q.add(temp.left);
+            }
+        }
+    }
+ 
+    // Function to delete given element
+    // in binary tree
+    static void delete(Node root, int key)
+    {
+        if (root == null)
+            return;
+ 
+        if (root.left == null && root.right == null) {
+            if (root.key == key) {
+                root = null;
+                return;
+            }
+            else
+                return;
+        }
+ 
+        Queue<Node> q = new LinkedList<Node>();
+        q.add(root);
+        Node temp = null, keyNode = null;
+ 
+        // Do level order traversal until
+        // we find key and last node.
+        while (!q.isEmpty()) {
+            temp = q.peek();
+            q.remove();
+ 
+            if (temp.key == key)
+                keyNode = temp;
+ 
+            if (temp.left != null)
+                q.add(temp.left);
+ 
+            if (temp.right != null)
+                q.add(temp.right);
+        }
+ 
+        if (keyNode != null) {
+            int x = temp.key;
+            deleteDeepest(root, temp);
+            keyNode.key = x;
+        }
+    }
