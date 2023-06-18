@@ -1,0 +1,35 @@
+Protected: accessed only within package and in outside package only accessed by child class. 
+
+class C
+--------
+package test;
+public class C {
+    protected void m1(){
+        System.out.println("main");
+    }
+}
+class B extends C{
+    public static void main(String[] args) {
+        C a=new C();
+        a.m1();
+        B b=new B();
+        b.m1();
+        C c=new B();
+        c.m1();
+    }
+}
+
+class A
+--------
+package testing;
+import test.C;
+public class A extends C{
+    public static void main(String[] args) {
+        A a=new A();
+        a.m1();                     //only accessed by child class
+        C c=new C();
+        c.m1();                     //Error parent referring
+        A a=new C();
+        a.m1();                    // error parent referring
+    }
+}
