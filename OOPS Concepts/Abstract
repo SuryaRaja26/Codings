@@ -1,0 +1,122 @@
+Abstract class have abstract and non abstract methods. Applicable only for classes and methods. If class declared as abstract then
+it must have atleast one abstract method. Constructors are allowed. abstract keyword used in top class also. 
+
+Ex:1 Instances cannot be created for abstract class
+----
+abstract class A{
+    abstract public int m1();
+}
+
+public class Test extends A{
+    public static void main(String[] args) {
+        A a=new A();                             //  A is abstract; cannot be instantiated
+    }
+}
+
+Ex:2 We can have abstract class without abstract mehods.
+----
+class A{
+    public void m1(){  
+    }
+}
+public class Test Extends A {
+    public static void main(String[] args) {
+        A a=new A();
+    }
+}
+
+EX:3 There can final method in abstract method but not in vice versa.
+----
+abstract class A{
+    abstract public void m1();
+    final public void m2(){
+        
+    }
+}
+public class Test extends A {
+    public void m1(){    
+    }
+}
+
+EX:4 If atleast one abstract method is declared in abstract then the class must use abstract keyword.
+----
+  class A{                        // must have abstract keyword
+    abstract public void m1();
+    final public void m2(){
+    }
+}
+
+public class Test extends A {
+    public void m1(){
+
+    }
+}
+
+Ex:5 we can create reference for abstract class not obj.
+----
+abstract class base{
+  abstract void fun();
+}
+class test extends base{
+  void fun(){
+    sout("");
+  }
+}
+public class main(){
+  psvm(){
+    base b =new test();
+    b.fun();
+   }
+ }
+ 
+ EX:6  
+ ----
+ abstract class base{
+    base(){
+        System.out.println("base");
+    }
+    abstract void m1();
+}
+class child extends base{
+    child(){
+        System.out.println("child");
+    }
+     void m1(){
+        System.out.println("inherited");
+    }
+}
+public class Test {
+    public static void main(String[] args) {
+        child c= new child();
+        c.m1();
+    }
+}
+
+O/P
+base
+child
+inherited
+
+EX:7 If child class not able to provide implementation of all methods in abstract class then the declare chaild class as abstract then 
+next level child class should give all implementation.
+----
+
+abstract class base{
+  abstract void m1();
+  abstract void m2();
+}
+abstract class child extends base{
+  void m1(){
+  }
+}
+class second_child extends child{
+  void m2(){
+  }
+ }
+ public class main{
+  psvm{
+  child c=new child()
+  c.m1();
+  c.m2();
+  }
+}
