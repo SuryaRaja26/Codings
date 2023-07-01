@@ -1,0 +1,66 @@
+Interface:
+-----------
+It is an abstract type. Contain static and  abstract methods. used to achieve multiple inheritance and abstraction also. Interface fields are public, final and 
+abstract. A class can extend only one class at a time. An interface can extend any number of interface at a time. A class can implements any number of interface
+parallely.
+
+interface inter{
+    void m1();   // default set as public 
+    void m2();
+}
+abstract class service implements inter{ // use abstract keyword because m2 method implementation provided by child method
+   public void m1(){ // always as public 
+       System.out.println("heelo");
+    }
+
+}
+class child extends service{
+    public void m2() {
+        System.out.println("implementing");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("main");
+        service s=new child();
+        s.m1();
+        s.m2();
+
+    }
+}
+
+** class extends another class ** interface implements class ** interface implements interface **
+
+Multiple inhertiance through interface:
+---------------------------------------
+
+interface Printable{  
+void print();  
+}  
+interface Showable{  
+void show();  
+}  
+class A7 implements Printable,Showable{  
+public void print(){System.out.println("Hello");}  
+public void show(){System.out.println("Welcome");}  
+  
+public static void main(String args[]){  
+A7 obj = new A7();  
+obj.print();  
+obj.show();  
+ }  
+}  
+
+Points:
+-------
+
+A class can extend any classess at a time false
+A class can implement only one interface at a time false
+an interface can extend only one interface at a time false
+an interface can implement any number of interfaces simultaneously false
+a class can extennd another class or can implement an interface but not both simultaneously false
+x extends y,z --> x,y,z--sholud be interface
+x implements y,z --> x- class y,z- interface
+x extends y implements z--> x,y-extends z-interface
+x implements y extends z --> C.E
+
