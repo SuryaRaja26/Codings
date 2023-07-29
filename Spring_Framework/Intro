@@ -53,6 +53,11 @@ starter parent:
 ---------------
 spring boot provide a "Starter parent"
 
+Below this code used to update after made changes in code.
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
 
 
 
