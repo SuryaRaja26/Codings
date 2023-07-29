@@ -1,0 +1,76 @@
+Introduction:
+--------------
+
+The Spring framework(which is commonly known as Spring) has emerged as a solution to all these complications This framework uses various new techniques such as
+Aspect-Oriented Programming (AOP), Plain Old Java Object (POJO), and dependency injection (DI), to develop enterprise applications.
+
+The Spring framework consists of seven modules which are shown in the above Figure. These modules are Spring Core, Spring AOP, Spring Web MVC, Spring DAO, Spring ORM,
+Spring context, and Spring Web flow.
+
+Spring Core:
+-----------
+The Spring Core module, which is the core component of the Spring framework, provides the IoC container There are two types of implementations of the Spring container,
+namely, bean factory and application context.
+
+
+
+
+Maven:
+------
+Maven is a project management tool. If you are in a prokect then you meed to download multiple jar files for hibernate,mvc,spring..... but if you use Maven it
+will be automatically downloaded.Provides standard directory
+
+Maven directory:
+---------------
+Pov.xml:
+ Maven configuration file used to store shopping list of jar files.
+Java:
+ Here we place the java source code:
+Resource:
+ Here we place the config files and properties files.
+Webapp:
+ here you place the jsp files.
+
+Maven Key concepts
+-----------------
+Pom File Structure: Similar location to house -> city,street
+Project meta data : Stores version, output file type
+Dependencies : list of projects we depend on spring, hibernate, etc
+Plug ins : Additional custom tasks to run like junit test reports
+
+Maven wrapper files:
+--------------------
+
+MVNW allows you to run a maven project
+
+
+Application Properties:
+-------------------------
+
+Spring boot properties all are loaded from application.properties EG: server.port=8585
+
+starter parent:
+---------------
+spring boot provide a "Starter parent"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
