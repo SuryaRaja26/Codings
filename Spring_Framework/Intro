@@ -59,6 +59,22 @@ Below this code used to update after made changes in code.
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
+Custom Injections:
+------------------
+Application properties:
+coach.name=surya
+team.name=raja
+Funrestcontroller:
+    @Value("${coach.name}")
+    private String coachname;
+    @Value("${team.name}")
+    private String teamname;
+
+
+    @GetMapping("/teaminfo")
+    public String getteaminfo(){
+        return coachname+" and "+teamname;
+    }
 
 
 
