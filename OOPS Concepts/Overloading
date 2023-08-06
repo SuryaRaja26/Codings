@@ -1,0 +1,62 @@
+/*
+//Overloading:
+//If two methods having same name and different parameters means it is overloading.If exact match is not found means
+//it will promote to the upper value. EG:1
+class parent{
+    public void m1(int i){
+        System.out.println("int");
+    }
+    public void m1(double i){
+        System.out.println("double");
+    }
+}
+public class test{
+    public static void main(String[] args) {
+        parent t=new parent();
+        t.m1(10l); //double
+        t.m1(10.5f); //double
+        t.m1('a'); //int
+        t.m1(10.0d);//double
+        t.m1(10); //double
+    }
+}
+*/
+/*
+//EG:2
+class par{
+    public void m1(Object i){
+        System.out.println("obj");
+    }
+    public void m1(String i){
+        System.out.println("str");
+    }
+}
+public class test{
+    public static void main(String[] args) {
+         par t=new par();
+         t.m1(new Object()); //obj
+        t.m1("Sruya"); //str
+        t.m1(null); //str
+    }
+}
+// Here Null is valid to both Object(par) and String(child) so Jvm will give priority to child//.
+ */
+
+//EG:3
+
+class par{
+    public void m1(String i){
+        System.out.println("obj");
+    }
+    public void m1(StringBuffer i){
+        System.out.println("str");
+    }
+}
+public class test{
+    public static void main(String[] args) {
+        par t=new par();
+        t.m1("Surya"); //Str
+        t.m1(new StringBuffer("Sruya")); //str buffer
+        t.m1(null); // Ambigus
+    }
+}
