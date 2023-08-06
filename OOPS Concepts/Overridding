@@ -1,0 +1,25 @@
+// Overridding: method name and signature should be same. Covarient return type allowed.
+//Overriding is not applicable for private methods in parent.By default we can't to override private methods
+
+class p{
+    public Object marriage(){
+        System.out.println("Renu");
+        return 1;
+    }
+}
+class c extends p{
+    public String marriage(){
+        System.out.println("Abi"); //covarient types(child) are allowed in return type.Covarient are only allowed in obj not in primitive type(int,double)
+        return "Surya";
+    }
+}
+public class test{
+    public static void main(String[] args) {
+        p a=new p();
+        a.marriage(); //Renu
+        c b=new c();
+        b.marriage(); //Abi
+        p d=new c();
+        d.marriage(); //Abi (overridding results based on runtime objects)
+    }
+}
