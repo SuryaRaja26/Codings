@@ -60,3 +60,45 @@ public class test{
         t.m1(null); // Ambigus
     }
 }
+
+EG:4
+-----
+class par{
+    public void m1(int i){
+        System.out.println("general");
+    }
+    public void m1(int... i){
+        System.out.println("var-arg");
+    }
+}
+public class test{
+    public static void main(String[] args) {
+        par t=new par();
+        t.m1(1); //general(Var-arg method is least priority)
+        t.m1(10,10); // Var-arg
+        t.m1(); //Var (arg accept zero parameter)
+    }
+}
+
+
+Eg:5
+class animal{
+}
+class monkey extends animal{
+}
+class test{
+    public void m1(Animal a){
+        sout("animal")
+    }
+    public void m1(Animal a){
+        sout("animal")
+    }
+    public static void main(){
+        Test t=new Test;
+        Animal a=new Animal();
+        t.m1(a) //Animal
+        Monkey a=new Monley();
+        t.m1(a) //Monley
+        Animal a=new Monley();
+        t.m1(a) //Animal(Compiler will results based on reference type only)
+}
