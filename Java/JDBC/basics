@@ -1,0 +1,4 @@
+First download JDBC driver: https://dev.mysql.com/downloads/connector/j/
+add in intellij -> file -> project structure -> module -> dependencies -> add jar
+
+
