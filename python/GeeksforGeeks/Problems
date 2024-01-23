@@ -1,0 +1,32 @@
+1) Value equal to index value
+l=[]
+		for i in range(0,n):
+		    if i+1==arr[i]:
+		        l.append(i+1)
+		return l
+
+2)Palindromic Array
+
+def PalinArray(arr ,n):
+    for i in arr:
+        result=check_palin(i)
+        if(result==0):
+            return 0
+        
+    return 1
+        
+def check_palin(i):
+    r=0
+    sum=0
+    temp=i
+    while(temp>0):
+        r=temp%10
+        sum=(sum*10)+r
+        temp=int(temp/10)
+    if(sum==i):
+        return 1
+    else:
+        return 0
+3)Remove Spaces
+return s.replace(" ","")
+
